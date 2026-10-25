@@ -1,0 +1,16 @@
+[project]
+name = "codenames-workspace"
+version = "0.1.0"
+description = "Workspace root for the Codenames clone + AI codemaster project"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.uv.workspace]
+members = ["packages/*", "apps/server"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["packages", "apps/server"]
+addopts = "--import-mode=importlib"

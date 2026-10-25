@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ML artifacts / data (never commit — see CLAUDE.md boundary #6)
+artifacts/
+*.npz
+*.pt
+*.bin
+*.safetensors
+.cache/
+
+# packages/codemaster/data: cards.txt is owner-supplied and committed; everything else
+# (generated clue_vocab.txt, GloVe downloads, corpus caches) is not.
+packages/codemaster/data/*
+!packages/codemaster/data/cards.txt
+!packages/codemaster/data/README.md
+
+# Node / frontend
+node_modules/
+dist/
+.turbo/
+*.local
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Env
+.env
+.env.*

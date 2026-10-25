@@ -1,0 +1,41 @@
+# Base config shape for pipeline stages (python -m codemaster.pipeline <stage> --config ...).
+# Copy and override per experiment; every run writes the resolved config into run.json.
+
+seed: 0
+
+model:
+  id: bert-base              # one of: bert-base, bert-large, deberta-v3, glove
+  checkpoint: bert-base-uncased
+  layers: all                # placeholder — frozen per-model after the layer sweep (Stage 2)
+
+vocab:
+  cards_path: data/cards.txt
+  clue_vocab_path: data/clue_vocab.txt
+  clue_vocab_size: 10000      # N, see CLAUDE.md Data §2
+
+corpus:
+  sources:
+    - name: wikipedia
+      dataset: wikimedia/wikipedia
+      config: 20231101.en
+      weight: 0.5
+    - name: fineweb-edu
+      dataset: HuggingFaceFW/fineweb-edu
+      config: sample-10BT
+      weight: 0.5
+  max_contexts_per_card_word: 500
+  max_contexts_per_clue_word: 200
+  min_contexts: 50
+
+clustering:
+  method: kmeans              # kmeans | agglomerative
+  kmeans:
+    k_min: 2
+    k_max: 6
+    silhouette_threshold: null  # tau — tuned on SemEval, then frozen
+  agglomerative:
+    linkage: average
+    distance_threshold: null    # tuned on SemEval, then frozen
+  min_cluster_share: 0.05
+
+limit: null                   # set for smoke tests, e.g. 100
