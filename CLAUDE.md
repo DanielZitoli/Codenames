@@ -140,3 +140,4 @@ Don't start work from a later phase unless the owner asks.
   updating the server, the frontend types and any agents in the same change.
 - **Ask before:** downloads over ~1 GB, runs expected to take more than ~30 minutes, new
   heavy dependencies, or changing a boundary listed above.
+- Keep git commit messages really concise — a short summary line, no bullet-point essays.

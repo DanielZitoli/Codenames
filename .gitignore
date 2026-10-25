@@ -27,6 +27,9 @@ dist/
 .turbo/
 *.local
 
+# Notebooks
+.ipynb_checkpoints/
+
 # Editors / OS
 .DS_Store
 .idea/

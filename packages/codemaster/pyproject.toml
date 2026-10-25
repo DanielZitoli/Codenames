@@ -25,6 +25,9 @@ pipeline = [
     "scikit-learn>=1.4",
     "pyarrow>=15.0",
     "tqdm>=4.66",
+    "jupyter>=1.0",
+    "ipykernel>=6.29",
+    "matplotlib>=3.8",
 ]
 
 [dependency-groups]
